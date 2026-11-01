@@ -9,6 +9,7 @@ import { Editorial } from '../../editorial/editorial';
 import { Book } from '../book';
 import { BookService } from '../book.service';
 import { beforeEach, describe, it } from 'node:test';
+import { BookDetail } from '../book-detail/bookDetail';
 
 describe('BookListComponent', () => {
  let component: BookListComponent;
@@ -34,7 +35,7 @@ describe('BookListComponent', () => {
    );
 
    for(let i = 0; i < 10; i++) {
-     const book = new Book(
+     const book = new BookDetail(
        faker.number.int(),
        faker.lorem.sentence(),
        faker.lorem.sentence(),
@@ -42,6 +43,8 @@ describe('BookListComponent', () => {
        faker.image.url(),
        faker.date.past(),
        editorial,
+       [],
+       []
      );
      component.books.push(book);
    }
